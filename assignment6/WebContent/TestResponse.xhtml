@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>JSF Response Page</title>
+</h:head>
+	
+	<h:body>
+		<ui:composition template="/layouts/commonLayout.xhtml">
+		<ui:define name="title">JSF Response</ui:define>
+		<ui:define name="content">
+		
+		<!-- CSS style for the Data Table -->
+		<h:outputStylesheet library="css" name="grid-style.css"/>
+			
+		<!-- Displays first and last name from Test Form -->
+		<h:outputLabel for="name">
+			Hello #{user.firstName} #{user.lastName}. Your orders are: <br/><br/> <!-- Forwarded user variables go here-->
+		</h:outputLabel>
+			
+		<!--  Data table using the order values from the orders list-->
+		<h:dataTable value="#{formController.service.orders}" var="order"
+			styleClass="orderTable" 
+    		headerClass="orderTHeader"
+    		rowClasses="orderORow,orderERow"
+    		>
+			
+			<!-- Order ID -->
+			<h:column>
+				<f:facet name = "header">Order ID</f:facet>
+				#{order.id}
+			</h:column>
+			
+			<!-- Order Number -->
+			<h:column>
+				<f:facet name = "header">Order Number</f:facet>
+				#{order.number}
+			</h:column>
+				
+			<!-- Name of the Product -->
+			<h:column>
+				<f:facet name = "header">Name</f:facet>
+				#{order.name}
+			</h:column>	
+				
+			<!-- Price of the Product -->
+			<h:column>
+				<f:facet name = "header">Price</f:facet>
+				$#{order.price}
+			</h:column>
+			
+			<!-- Number of items sold-->
+			<h:column>
+				<f:facet name = "header">Quantity</f:facet>
+				#{order.quantity}
+			</h:column>
+			
+		</h:dataTable>	
+			
+		<!-- Button that takes the user back to the login page -->	
+		<h:form>
+			<br/>
+			<h:commandButton action="#{formController.onSendOrder()}" value="Send Order" /> <!-- Already using the managed bean -->
+			<h:button outcome="TestForm" value="Back to Login page" /> <!--Button to go back to -->
+		</h:form>
+			
+			
+		</ui:define>
+		</ui:composition>
+	</h:body>
+
+</html>
+

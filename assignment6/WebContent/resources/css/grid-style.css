@@ -1,0 +1,48 @@
+.orderTable td {
+ 
+	padding: 1em;
+ 	border: 2px solid black;
+ 	
+}
+
+.orderTable th {
+	padding: 1em;
+
+    
+}
+
+.orderTable{
+	text-align:center;
+	border-collapse: collapse;
+	border: 2px solid black;
+    
+    	  
+}
+
+.orderTHeader{
+	text-align:center;
+	background-color: #dfdfdf;
+	font-size: 20px;
+
+}
+
+
+
+.orderORow{
+	text-align:center;
+	border: 2px solid black;
+	
+}
+
+.orderERow{
+	text-align:center;
+    background-color: #f5f5f5;
+    
+
+}
+
+.orderTable td:hover{
+	
+	transform: scale(1.4,1.4);
+	transition: transform 0.9s;
+}

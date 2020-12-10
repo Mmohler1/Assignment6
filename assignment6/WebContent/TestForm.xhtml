@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title><ui:insert name="title">Default title</ui:insert></title>
+</h:head>
+	<h:body>
+		<!-- Sets the layout and Title of the page -->
+		<ui:composition template="/layouts/commonLayout.xhtml">
+		<ui:define name="title">JSF Login Page</ui:define>
+		<ui:define name="content">
+			<!-- The form for login -->
+			<div align="center">
+			<h:form>
+				First Name: <h:inputText value="#{user.firstName}" title="" id="firstName"/><h:message for="firstName"/><br/> <!-- User Class in Managed Bean -->
+				Last Name: <h:inputText value="#{user.lastName}" title="" id="lastName"/><h:message for="lastName"/> <br/>   <!-- User Class in Managed Bean -->
+				<h:commandButton action="#{formController.onSubmit()}" value="Login" /> <!-- Already using the managed bean -->
+			</h:form>
+			<h:messages/> 
+			</div>
+		</ui:define>
+		</ui:composition>
+	
+	</h:body>	
+</html>
